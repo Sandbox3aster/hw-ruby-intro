@@ -44,7 +44,7 @@ end
 class BookInStock
 # YOUR CODE HERE
   def initialize(isbn, price)
-    if isbn.empty? || price <= 0
+    if isbn.empty? || isbn.length == 0 || price <= 0
       raise ArgumentError
     end
 
@@ -52,8 +52,7 @@ class BookInStock
     @price=price
   end
 
-  attr_reader :isbn, :price
-  attr_writer :isbn, :price
+  attr_accessor :isbn, :price
 
   def price_as_string
     "$%0.2f" % [@price]
